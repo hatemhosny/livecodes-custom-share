@@ -1,0 +1,32 @@
+{
+  "title": "LiveCodes: Custom Share",
+  "description": "",
+  "head": "<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />",
+  "htmlAttrs": "lang=\"en\" class=\"\"",
+  "tags": [],
+  "activeEditor": "markup",
+  "markup": {
+    "language": "html",
+    "content": "<div id=\"app\">\n  <div class=\"toolbar\">\n    <button id=\"shareBtn\">Share</button>\n    <span id=\"shareStatus\"></span>\n  </div>\n  <div id=\"playground\" data-default-styles=\"false\"></div>\n</div>\n"
+  },
+  "style": {
+    "language": "css",
+    "content": "body {\n  font-family: system-ui, sans-serif;\n  margin: 0;\n}\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh;\n}\n.toolbar {\n  padding: 12px 16px;\n  background: #1e1e1e;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n#shareBtn {\n  padding: 8px 16px;\n  background: #007bff;\n  color: #fff;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n  font-size: 14px;\n}\n#shareBtn:hover {\n  background: #0056b3;\n}\n#shareStatus {\n  font-size: 13px;\n  color: #9cdcfe;\n}\n#playground {\n  flex: 1;\n}\n"
+  },
+  "script": {
+    "language": "javascript",
+    "content": "import { createPlayground, compress, decompress } from 'livecodes';\n\nconst defaultConfig = {\n  markup: {\n    language: 'html',\n    content: '<h1>Hello World</h1>',\n  },\n  style: {\n    language: 'css',\n    content: 'h1 { color: royalblue; font-family: system-ui; }',\n  },\n  script: {\n    language: 'javascript',\n    content: 'console.log(\"Hello from LiveCodes!\");',\n  },\n};\n\nfunction getConfigFromHash() {\n  const hash = location.hash.slice(1);\n  if (!hash) return defaultConfig;\n  try {\n    const decompressed = decompress(hash);\n    if (decompressed) {\n      return JSON.parse(decompressed);\n    }\n  } catch {\n    // invalid hash\n  }\n  return defaultConfig;\n}\n\nconst config = getConfigFromHash();\n\nconst playground = await createPlayground('#playground', { config });\n\ndocument.getElementById('shareBtn').addEventListener('click', async () => {\n  const currentConfig = await playground.getConfig();\n  const compressed = compress(JSON.stringify(currentConfig));\n\n  const url = new URL(location.href);\n  url.hash = compressed;\n\n  try {\n    await navigator.clipboard.writeText(url.href);\n    document.getElementById('shareStatus').textContent = 'URL copied to clipboard!';\n    setTimeout(() => {\n      document.getElementById('shareStatus').textContent = '';\n    }, 2000);\n  } catch {\n    document.getElementById('shareStatus').textContent = 'Copy failed. URL: ' + url.href;\n  }\n});\n"
+  },
+  "stylesheets": [],
+  "scripts": [],
+  "cssPreset": "",
+  "processors": [],
+  "customSettings": {},
+  "imports": {},
+  "types": {},
+  "tests": {
+    "language": "typescript",
+    "content": ""
+  },
+  "version": "48"
+}

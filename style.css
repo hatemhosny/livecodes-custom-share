@@ -1,0 +1,36 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.toolbar {
+  padding: 12px 16px;
+  background: #1e1e1e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#shareBtn {
+  padding: 8px 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+#shareBtn:hover {
+  background: #0056b3;
+}
+#shareStatus {
+  font-size: 13px;
+  color: #9cdcfe;
+}
+#playground {
+  flex: 1;
+}
