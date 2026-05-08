@@ -13,6 +13,7 @@ body {
   color: #fff;
   display: flex;
   align-items: center;
+  justify-content: end;
   gap: 12px;
 }
 #shareBtn {

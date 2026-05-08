@@ -1,17 +1,17 @@
 {
   "title": "LiveCodes: Custom Share",
   "description": "",
-  "head": "<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />",
+  "head": "<base href=\"https://cdn.jsdelivr.net/gh/hatemhosny/livecodes-custom-share@gh-pages/src/index.html\">\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />",
   "htmlAttrs": "lang=\"en\" class=\"\"",
   "tags": [],
-  "activeEditor": "markup",
+  "activeEditor": "script",
   "markup": {
     "language": "html",
     "content": "<div id=\"app\">\n  <div class=\"toolbar\">\n    <button id=\"shareBtn\">Share</button>\n    <span id=\"shareStatus\"></span>\n  </div>\n  <div id=\"playground\" data-default-styles=\"false\"></div>\n</div>\n"
   },
   "style": {
     "language": "css",
-    "content": "body {\n  font-family: system-ui, sans-serif;\n  margin: 0;\n}\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh;\n}\n.toolbar {\n  padding: 12px 16px;\n  background: #1e1e1e;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n#shareBtn {\n  padding: 8px 16px;\n  background: #007bff;\n  color: #fff;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n  font-size: 14px;\n}\n#shareBtn:hover {\n  background: #0056b3;\n}\n#shareStatus {\n  font-size: 13px;\n  color: #9cdcfe;\n}\n#playground {\n  flex: 1;\n}\n"
+    "content": "body {\n  font-family: system-ui, sans-serif;\n  margin: 0;\n}\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh;\n}\n.toolbar {\n  padding: 12px 16px;\n  background: #1e1e1e;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: end;\n  gap: 12px;\n}\n#shareBtn {\n  padding: 8px 16px;\n  background: #007bff;\n  color: #fff;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n  font-size: 14px;\n}\n#shareBtn:hover {\n  background: #0056b3;\n}\n#shareStatus {\n  font-size: 13px;\n  color: #9cdcfe;\n}\n#playground {\n  flex: 1;\n}\n"
   },
   "script": {
     "language": "javascript",
